@@ -1,10 +1,8 @@
-// Arquivo: main.cpp
 #include <iostream>
 #include "entidades.h"
 #include "locais.h"
 #include "veiculos.h"
 
-// Função para exibir o menu de opções
 void exibirMenu() {
     std::cout << "\n===== Sistema de Logistica (SLEM) =====" << std::endl;
     std::cout << "--- GESTAO DE LOCAIS ---" << std::endl;
@@ -21,15 +19,12 @@ void exibirMenu() {
 }
 
 int main() {
-    // Vetores para armazenar os dados em memória 
     Local vetorLocais[100];
     Veiculo vetorVeiculos[50];
     int totalLocais = 0;
     int totalVeiculos = 0;
-
     int opcao;
 
-    // Loop do menu que continua até o usuário escolher sair [cite: 27]
     do {
         exibirMenu();
         std::cin >> opcao;
@@ -41,7 +36,6 @@ int main() {
             case 4: excluirLocal(vetorLocais, totalLocais); break;
             case 5: cadastrarVeiculo(vetorVeiculos, totalVeiculos, vetorLocais, totalLocais); break;
             case 6: listarVeiculos(vetorVeiculos, totalVeiculos); break;
-            // Faltam os casos para atualizar e excluir veículo
             case 9: std::cout << "Saindo do sistema..." << std::endl; break;
             default: std::cout << "Opcao invalida. Tente novamente." << std::endl;
         }
