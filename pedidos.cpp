@@ -2,39 +2,36 @@
 #include <iostream>
 #include <cstring>
 #include "pedidos.h"
+#include "locais.h" // Incluído para poder usar a função 'buscarLocalPorNome'
 
-// Função auxiliar para buscar um local pelo nome (já criada em locais.cpp, mas necessária aqui)
-// Para evitar duplicar código, o ideal seria ter um arquivo "utils.h"
-// Mas, por simplicidade, podemos reescrevê-la ou chamá-la se a estrutura permitir.
-int buscarLocalPorNome(const char nomeBusca[], const Local vetorLocais[], int totalLocais) {
-    for (int i = 0; i < totalLocais; i++) {
-        if (strcmp(vetorLocais[i].nome, nomeBusca) == 0) return i;
-    }
-    return -1;
-}
+//
+// A IMPLEMENTAÇÃO DUPLICADA DE 'buscarLocalPorNome' FOI REMOVIDA DESTE ARQUIVO.
+//
 
-// Implementação das funções de CRUD para Pedidos
+[cite_start]// Implementação da operação para criar um Pedido [cite: 17]
 void cadastrarPedido(Pedido vetorPedidos[], int &totalPedidos, const Local vetorLocais[], int totalLocais) {
-    if (totalPedidos >= 200) { // Limite máximo de 200 pedidos
+    if (totalPedidos >= 200) { // Limite arbitrário para o vetor
         std::cout << "Erro: Nao ha mais espaco para cadastrar pedidos." << std::endl;
         return;
     }
 
     Pedido novoPedido;
-    novoPedido.id = totalPedidos + 1; // ID sequencial simples
+    novoPedido.id = totalPedidos + 1; [cite_start]// Atributo: Identificador único [cite: 16]
 
     char nomeOrigem[50], nomeDestino[50];
     
     std::cout << "\n--- Cadastro de Novo Pedido ---" << std::endl;
     std::cout << "Digite o nome do local de ORIGEM: ";
     std::cin >> nomeOrigem;
+    
+    // Chamada para a função que agora existe apenas em 'locais.cpp'
     int indiceOrigem = buscarLocalPorNome(nomeOrigem, vetorLocais, totalLocais);
 
     if (indiceOrigem == -1) {
         std::cout << "Erro: Local de origem nao encontrado." << std::endl;
         return;
     }
-    novoPedido.origem = vetorLocais[indiceOrigem];
+    novoPedido.origem = vetorLocais[indiceOrigem]; [cite_start]// Atributo: local de origem (referência a um Local) [cite: 16]
 
     std::cout << "Digite o nome do local de DESTINO: ";
     std::cin >> nomeDestino;
@@ -44,16 +41,17 @@ void cadastrarPedido(Pedido vetorPedidos[], int &totalPedidos, const Local vetor
         std::cout << "Erro: Local de destino nao encontrado." << std::endl;
         return;
     }
-    novoPedido.destino = vetorLocais[indiceDestino];
+    novoPedido.destino = vetorLocais[indiceDestino]; [cite_start]// Atributo: destino (referência a um Local) [cite: 16]
 
     std::cout << "Digite o peso do item (kg): ";
-    std::cin >> novoPedido.peso;
+    std::cin >> novoPedido.peso; [cite_start]// Atributo: peso do item (em kg) [cite: 16]
 
     vetorPedidos[totalPedidos] = novoPedido;
     totalPedidos++;
     std::cout << "Pedido cadastrado com sucesso! (ID: " << novoPedido.id << ")" << std::endl;
 }
 
+[cite_start]// Implementação da operação para listar Pedidos [cite: 17]
 void listarPedidos(const Pedido vetorPedidos[], int totalPedidos) {
     std::cout << "\n--- Lista de Pedidos Cadastrados ---" << std::endl;
     if (totalPedidos == 0) {
