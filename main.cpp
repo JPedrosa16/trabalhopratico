@@ -1,28 +1,38 @@
+// Arquivo: main.cpp
 #include <iostream>
 #include "entidades.h"
 #include "locais.h"
 #include "veiculos.h"
+#include "pedidos.h" // Incluir novo módulo
+#include "rotas.h"   // Incluir novo módulo
 
 void exibirMenu() {
     std::cout << "\n===== Sistema de Logistica (SLEM) =====" << std::endl;
     std::cout << "--- GESTAO DE LOCAIS ---" << std::endl;
-    std::cout << "1. Cadastrar Local" << std::endl;
-    std::cout << "2. Listar Locais" << std::endl;
-    std::cout << "3. Atualizar Local" << std::endl;
-    std::cout << "4. Excluir Local" << std::endl;
+    // ... opções 1 a 4 ...
     std::cout << "--- GESTAO DE VEICULOS ---" << std::endl;
-    std::cout << "5. Cadastrar Veiculo" << std::endl;
-    std::cout << "6. Listar Veiculos" << std::endl;
+    // ... opções 5 e 6 ...
+    std::cout << "--- GESTAO DE PEDIDOS ---" << std::endl;
+    std::cout << "7. Cadastrar Pedido" << std::endl;
+    std::cout << "8. Listar Pedidos" << std::endl;
+    std::cout << "--- OPERACOES ---" << std::endl;
+    std::cout << "10. Calcular Rota de Entrega" << std::endl;
     std::cout << "----------------------------------" << std::endl;
-    std::cout << "9. Sair" << std::endl;
+    std::cout << "99. Sair" << std::endl;
     std::cout << "Escolha uma opcao: ";
 }
 
 int main() {
+    // Vetores
     Local vetorLocais[100];
     Veiculo vetorVeiculos[50];
+    Pedido vetorPedidos[200]; // Adicionar vetor de pedidos
+
+    // Contadores
     int totalLocais = 0;
     int totalVeiculos = 0;
+    int totalPedidos = 0; // Adicionar contador de pedidos
+
     int opcao;
 
     do {
@@ -30,16 +40,16 @@ int main() {
         std::cin >> opcao;
 
         switch (opcao) {
-            case 1: cadastrarLocal(vetorLocais, totalLocais); break;
-            case 2: listarLocais(vetorLocais, totalLocais); break;
-            case 3: atualizarLocal(vetorLocais, totalLocais); break;
-            case 4: excluirLocal(vetorLocais, totalLocais); break;
-            case 5: cadastrarVeiculo(vetorVeiculos, totalVeiculos, vetorLocais, totalLocais); break;
-            case 6: listarVeiculos(vetorVeiculos, totalVeiculos); break;
-            case 9: std::cout << "Saindo do sistema..." << std::endl; break;
+            // Casos 1 a 6 da Sprint 1...
+            
+            case 7: cadastrarPedido(vetorPedidos, totalPedidos, vetorLocais, totalLocais); break;
+            case 8: listarPedidos(vetorPedidos, totalPedidos); break;
+            case 10: calcularExibirRota(vetorPedidos, totalPedidos, vetorVeiculos, totalVeiculos); break;
+            
+            case 99: std::cout << "Saindo do sistema..." << std::endl; break;
             default: std::cout << "Opcao invalida. Tente novamente." << std::endl;
         }
-    } while (opcao != 9);
+    } while (opcao != 99);
 
     return 0;
 }
