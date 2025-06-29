@@ -1,6 +1,3 @@
-// Módulo de gestão de pedidos.
-// Permite cadastrar pedidos informando origem, destino e peso, além de listar os pedidos cadastrados.
-
 // Arquivo: pedidos.cpp
 #include <iostream>
 #include <cstring>
@@ -11,7 +8,7 @@
 // A IMPLEMENTAÇÃO DUPLICADA DE 'buscarLocalPorNome' FOI REMOVIDA DESTE ARQUIVO.
 //
 
-[cite_start]// Implementação da operação para criar um Pedido [cite: 17]
+// Implementação da operação para criar um Pedido
 void cadastrarPedido(Pedido vetorPedidos[], int &totalPedidos, const Local vetorLocais[], int totalLocais) {
     if (totalPedidos >= 200) { // Limite arbitrário para o vetor
         std::cout << "Erro: Nao ha mais espaco para cadastrar pedidos." << std::endl;
@@ -19,7 +16,7 @@ void cadastrarPedido(Pedido vetorPedidos[], int &totalPedidos, const Local vetor
     }
 
     Pedido novoPedido;
-    novoPedido.id = totalPedidos + 1; [cite_start]// Atributo: Identificador único [cite: 16]
+    novoPedido.id = totalPedidos + 1;
 
     char nomeOrigem[50], nomeDestino[50];
     
@@ -34,7 +31,7 @@ void cadastrarPedido(Pedido vetorPedidos[], int &totalPedidos, const Local vetor
         std::cout << "Erro: Local de origem nao encontrado." << std::endl;
         return;
     }
-    novoPedido.origem = vetorLocais[indiceOrigem]; [cite_start]// Atributo: local de origem (referência a um Local) [cite: 16]
+    novoPedido.origem = vetorLocais[indiceOrigem];
 
     std::cout << "Digite o nome do local de DESTINO: ";
     std::cin >> nomeDestino;
@@ -44,17 +41,17 @@ void cadastrarPedido(Pedido vetorPedidos[], int &totalPedidos, const Local vetor
         std::cout << "Erro: Local de destino nao encontrado." << std::endl;
         return;
     }
-    novoPedido.destino = vetorLocais[indiceDestino]; [cite_start]// Atributo: destino (referência a um Local) [cite: 16]
+    novoPedido.destino = vetorLocais[indiceDestino];
 
     std::cout << "Digite o peso do item (kg): ";
-    std::cin >> novoPedido.peso; [cite_start]// Atributo: peso do item (em kg) [cite: 16]
+    std::cin >> novoPedido.peso;
 
     vetorPedidos[totalPedidos] = novoPedido;
     totalPedidos++;
     std::cout << "Pedido cadastrado com sucesso! (ID: " << novoPedido.id << ")" << std::endl;
 }
 
-[cite_start]// Implementação da operação para listar Pedidos [cite: 17]
+// Implementação da operação para listar Pedidos
 void listarPedidos(const Pedido vetorPedidos[], int totalPedidos) {
     std::cout << "\n--- Lista de Pedidos Cadastrados ---" << std::endl;
     if (totalPedidos == 0) {

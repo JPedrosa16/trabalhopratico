@@ -1,7 +1,3 @@
-// Arquivo principal do sistema SLEM.
-// Responsável por inicializar vetores, exibir o menu principal e controlar o fluxo do programa.
-// Todas as operações são chamadas a partir daqui.
-
 // Arquivo: main.cpp
 #include <iostream>
 #include "entidades.h"

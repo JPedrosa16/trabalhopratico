@@ -1,6 +1,3 @@
-// Módulo de persistência (backup e restauração).
-// Salva e carrega dados dos vetores usando arquivos binários.
-
 // Arquivo: arquivos.cpp
 #include <iostream>
 #include <fstream>

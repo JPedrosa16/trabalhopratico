@@ -1,6 +1,3 @@
-// Módulo de gestão de veículos.
-// Permite cadastrar veículos com base em um local existente e listar os veículos cadastrados.
-
 // Arquivo: veiculos.cpp
 #include <iostream>
 #include <cstring> // Essencial para usar a função strcpy

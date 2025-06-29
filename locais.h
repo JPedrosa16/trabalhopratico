@@ -4,7 +4,7 @@
 
 #include "entidades.h"
 
-[cite_start]// Declaração das operações de CRUD para a entidade Local [cite: 12]
+// Declaração das operações de CRUD para a entidade Local [cite: 12]
 void cadastrarLocal(Local vetorLocais[], int &totalLocais);
 void listarLocais(const Local vetorLocais[], int totalLocais);
 void atualizarLocal(Local vetorLocais[], int totalLocais);

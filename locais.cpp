@@ -1,12 +1,9 @@
-// Módulo responsável pelas operações com locais (pontos geográficos).
-// Permite cadastrar, listar, atualizar, excluir e buscar locais por nome.
-
 // Arquivo: locais.cpp
 #include <iostream>
 #include <cstring>
 #include "locais.h"
 
-[cite_start]// Implementação da operação para criar um Local [cite: 12]
+// Implementação da operação para criar um Local [cite: 12]
 void cadastrarLocal(Local vetorLocais[], int &totalLocais) {
     if (totalLocais >= 100) { // Limite arbitrário para o vetor
         std::cout << "Erro: Nao ha mais espaco para cadastrar locais." << std::endl;
@@ -27,7 +24,7 @@ void cadastrarLocal(Local vetorLocais[], int &totalLocais) {
     std::cout << "Local cadastrado com sucesso!" << std::endl;
 }
 
-[cite_start]// Implementação da operação para listar Locais [cite: 12]
+// Implementação da operação para listar Locais [cite: 12]
 void listarLocais(const Local vetorLocais[], int totalLocais) {
     std::cout << "\n--- Lista de Locais Cadastrados ---" << std::endl;
     if (totalLocais == 0) {
@@ -53,7 +50,7 @@ int buscarLocalPorNome(const char nomeBusca[], const Local vetorLocais[], int to
     return -1; // Retorna -1 se não encontrar
 }
 
-[cite_start]// Implementação da operação para atualizar um Local [cite: 12]
+// Implementação da operação para atualizar um Local [cite: 12]
 void atualizarLocal(Local vetorLocais[], int totalLocais) {
     char nomeBusca[50];
     std::cout << "\nDigite o nome do local que deseja atualizar: ";
@@ -74,7 +71,7 @@ void atualizarLocal(Local vetorLocais[], int totalLocais) {
     }
 }
 
-[cite_start]// Implementação da operação para excluir um Local [cite: 12]
+// Implementação da operação para excluir um Local [cite: 12]
 void excluirLocal(Local vetorLocais[], int &totalLocais) {
     char nomeBusca[50];
     std::cout << "\nDigite o nome do local que deseja excluir: ";

@@ -1,6 +1,3 @@
-// Cabeçalho do módulo de persistência.
-// Declara funções para salvar e restaurar dados binários.
-
 // Arquivo: arquivos.h
 #ifndef ARQUIVOS_H
 #define ARQUIVOS_H
