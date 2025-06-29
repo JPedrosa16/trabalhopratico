@@ -1,3 +1,6 @@
+// Módulo responsável pelas operações com locais (pontos geográficos).
+// Permite cadastrar, listar, atualizar, excluir e buscar locais por nome.
+
 // Arquivo: locais.cpp
 #include <iostream>
 #include <cstring>

@@ -1,3 +1,6 @@
+// Módulo de cálculo de rotas para entrega.
+// Encontra o veículo mais próximo disponível, calcula distâncias e simula o processo de entrega.
+
 // Arquivo: rotas.cpp
 #include <iostream>
 #include <cmath> // Para sqrt e pow

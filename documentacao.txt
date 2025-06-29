@@ -1,0 +1,41 @@
+# Documentação - Sistema de Logística (SLEM)
+
+## Introdução
+O SLEM é um sistema de gerenciamento logístico que permite cadastrar locais, veículos e pedidos de entrega, além de calcular a melhor rota com base na distância e disponibilidade do veículo.
+
+## Estrutura do Projeto
+
+- locais.cpp/h: Cadastro, listagem, atualização e exclusão de locais.
+- veiculos.cpp/h: Gerencia os veículos e seus estados.
+- pedidos.cpp/h: Cadastra e lista pedidos de entrega.
+- rotas.cpp/h: Calcula rotas com base na origem, destino e veículo mais próximo.
+- arquivos.cpp/h: Responsável por salvar e restaurar os dados em arquivos binários.
+
+## Como Compilar e Executar
+Use o seguinte comando:
+
+g++ main.cpp locais.cpp veiculos.cpp pedidos.cpp rotas.cpp arquivos.cpp -o slem
+
+Para executar no terminal:
+
+./slem
+
+## Manual do Usuário
+
+1. Cadastrar/Listar locais
+2. Cadastrar/Listar veículos
+3. Cadastrar/Listar pedidos
+4. Calcular rota
+5. Backup dos dados → opção 20
+6. Restaurar dados → opção 21
+
+## Análise de Complexidade
+
+- encontrarVeiculoMaisProximo → O(V)
+  Percorre todos os veículos disponíveis. Linear.
+
+- calcularExibirRota → O(P + V)
+  Busca o pedido pelo ID (O(P)) e o veículo mais próximo (O(V)).
+
+- buscarLocalPorNome → O(L)
+  Procura linearmente por um local com nome específico.

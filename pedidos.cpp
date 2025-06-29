@@ -1,3 +1,6 @@
+// Módulo de gestão de pedidos.
+// Permite cadastrar pedidos informando origem, destino e peso, além de listar os pedidos cadastrados.
+
 // Arquivo: pedidos.cpp
 #include <iostream>
 #include <cstring>
